@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25em;
+  line-height: 1.6em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  margin-bottom: 1em;
+}
+h2, h3, h4 {
+  margin-bottom: 1em;
+  border-bottom: 2px solid white;
+}
+em {
+  font-style: normal;
+  background-color: rgba(0,6,11,0.3);
+}
+
+p a {
+  font-style: normal;
+  background-color: rgba(255,255,255,0.3);
+  color: white;
+}
+
+aside {
+  position: fixed;
+  
+  padding: 20px;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  transform: translateX(400px);
+  transition: transform 180ms ease-in-out;
+  
+  font-size: 0.8em;
+  background: black;
+  color: white;
+}
+
+aside.open {
+  transform: translateX(0px);
+}
+
+
+/* HEADER */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header.collapsed > div {
+  height: 130px;
+}
+header.collapsed .logo-container {
+  margin-bottom: 1em;
+}
+
+header > div {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background: #fff;
+  transition: height 190ms ease-in;
+}
+
+.open-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  transition: transform 180ms ease-in-out;
+}
+
+.open-btn.open {
+  transform: translateX(-400px);
+}
+
+.logo-container {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 2em;
+}
+
+.logo {
+  display: block;
+  
+  
+  width: 100%;
+  height: 100%;
+  
+  background-image: url(images/logo-animation.png);
+  background-size: cover;
+  
+}
+.logo h1 {
+  /* Image replacement */
+  /* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */ 
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.logo-white {
+  background-image: url(images/logo-white.png);  
+}
+.logo:hover {
+  
+  animation-name: hoverLogo;
+  animation-duration: 400ms;
+  animation-timing-function: steps(7);
+}
+
+@keyframes hoverLogo {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -350px;
+  }
+  
+}
+ul.nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul.nav li {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+ul.nav li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  
+  
+  font-weight: 700;
+  color: black;
+}
+ul.nav li a:after {
+  content: "";
+  border-bottom: 5px solid black;
+}
+
+ul.nav li a:hover {
+  text-decoration: underline;
+}
+
+section {
+  width: 100%;
+  margin: 0;
+  padding: 100px 200px;
+  background: #094c83;
+  color: white;
+  transition: margin-top 290ms ease-in-out;
+}
+section * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section:first-of-type  {
+  margin-top: 300px;
+  background-image: url(images/background.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center 200px;
+  background-attachment: fixed;
+}
+section:nth-child(odd)  {
+  background-color: #108aee;
+}
+
+blockquote {
+  font-size: 1.25em;
+  
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: .75em;
+  border-left: 3px solid #fff;
+}
+
+footer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 600px;
+  
+  margin: 0;
+  padding: 0;
+  
+  background: #000b13;
+  background-image: url(images/background-footer.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;  
+  
+  background-size: cover
+
+}
+footer p {
+  color: white;
+}
+footer a {
+  color: white;
+}
+
+/* GALLERY */
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.gallery div {
+  
+  width: 440px;
+  
+  margin: 0 0 20px;
+  padding: 0;
+  
+}
+.gallery div.gallery-full {
+  width: 100%;
+}
+.gallery div.gallery-third {
+  width: 286px;
+}
+.gallery div img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+@media ( max-width: 1300px) {
+  
+  section {
+    padding: 50px 20px;
+  }
+  .gallery div,
+  .gallery div.gallery-third,
+  .gallery div.gallery-full {
+    flex: auto;
+  }
+}
+
+@media ( max-width: 500px) {
+  header {
+    position: static;
+  }
+  section {
+    padding: 50px 20px;
+  }
+  section:first-child {
+    margin-top: 0;
+  }
+  ul.nav {
+    flex-flow: column wrap;
+  }
+  .gallery div,
+  .gallery div.gallery-third {
+    width: 100%;
+  }
+}
