@@ -127,7 +127,7 @@ header > div {
 .logo:hover {
   
   animation-name: hoverLogo;
-  animation-duration: 400ms;
+  animation-duration: 2400ms;
   animation-timing-function: steps(7);
 }
 
