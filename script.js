@@ -31,3 +31,28 @@ window.onscroll = function(e) {
   };
   
 };
+
+/*+++++++++++++++++++++++++*/
+// Animate scrolling with jQuery
+// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+var headerOffset  = 130;
+$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        console.log(target.selector);
+        if ( target.selector == "#manifesto") {
+          headerOffset = 300;
+        }else{
+          headerOffset = 130;
+        };
+        $('html, body').animate({
+          scrollTop: target.offset().top - headerOffset
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
