@@ -1,15 +1,9 @@
-<<<<<<< Updated upstream
 // Store objects in variables
 var sideBar = document.getElementById("sideBar");
-=======
-//Store objects in variables
-var sidebar = document.getElementById("sideBar");
->>>>>>> Stashed changes
 var openBtn = document.getElementById("openBtn");
 
 var header = document.getElementById("header");
 
-<<<<<<< Updated upstream
 // Add the event listener
 openBtn.addEventListener("click", openSidebar);
 
@@ -62,35 +56,3 @@ $(function() {
     }
   });
 });
-=======
-
-//Add even listener
-openBtn.addEventListener("click", openSidebar);
-
-//Function to react to the event listener
-function openSidebar() {
-  //Toggle the class name on the element
-  sidebar.classList.toggle("open");
-  openBtn.classList.toggle("open");
-}
-
-//Attach the listener to the window
-window.onscroll = function(e) {
-  
-  //Get the pageYOffset
-  var pageOffset = window.pageYOffset;
-  
-  //If the offset is more than 200
-  if( pageOffset < 200 ) {
-    
-    //Add the class name
-    header.classList.add("collapsed");
-    
-  //If the offset is less tha 200  
-  } else {
-    console.log("BACK TO TOP");
-    
-    header.classList.remove("collapsed");
-  }
-}
->>>>>>> Stashed changes
