@@ -1,0 +1,38 @@
+/* Variation 1 */
+body.pink {
+  background-color: pink;
+  color: white;
+  
+  font-family: sans-serif;
+}
+
+body.pink h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+body.pink p {
+  font-size: 18px;
+}
+body.pink button {
+  background-color: black;
+  color: white;
+}
+/* Variation 2 */
+body.yellow {
+  background-color: yellow;
+  color: white;
+  
+  font-family: serif;
+}
+
+body.yellow h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+body.yellow p {
+  font-size: 18px;
+}
+body.yellow button {
+  background-color: black;
+  color: white;
+}

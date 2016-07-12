@@ -4,8 +4,21 @@ var openBtn = document.getElementById("openBtn");
 
 var header = document.getElementById("header");
 
+var goToTop = document.getElementById("goToTop");
+
+
+var openPopup = document.getElementById("openPopup");
+var popUp = document.getElementById("popUp");
+var overlay = document.getElementById("overlay");
+var closePopup = document.getElementById("closePopup");
+
+
+
 // Add the event listener
 openBtn.addEventListener("click", openSidebar);
+openPopup.addEventListener("click", openPopupOverlay);
+overlay.addEventListener("click", closePopupOverlay);
+closePopup.addEventListener("click", closePopupOverlay);
 
 // Function to react to the event listener
 function openSidebar() {
@@ -14,12 +27,41 @@ function openSidebar() {
   openBtn.classList.toggle("open");
 }
 
+// Function to show the overlay and popup
+function openPopupOverlay() {
+  popUp.classList.add("showPopup");
+  overlay.classList.add("showOverlay");
+}
+function closePopupOverlay() {
+  popUp.classList.remove("showPopup");
+  overlay.classList.remove("showOverlay");
+}
+
 // Attach a listener to the window
 window.onscroll = function(e) {
   
   // Get the pageYOffset
   var pageOffset = window.pageYOffset;
-
+  
+  // Get the page total height
+  var pageTotalHeight = document.body.clientHeight;
+  var pageTotalWidth = document.body.clientWidth;
+  
+  // Page height minus the browser height
+  var totalHeightMinusBrowser = document.body.clientHeight  -window.innerHeight;
+  
+  var heightDifference = 20;
+  
+  // Check for Browser Width
+  if ( pageTotalWidth < 500 ) {
+    heightDifference = 20;
+  } else {
+    heightDifference = -280;
+  }
+  
+  // Deduct the difference
+  totalHeightMinusBrowser -= heightDifference;
+  
   // If the offset is more than 200
   if ( pageOffset > 200 ) {
     // Add the class name
@@ -28,6 +70,13 @@ window.onscroll = function(e) {
   } else {
     // Remove the class name
     header.classList.remove("collapsed");   
+  };
+  
+  // Bottom of the page
+  if ( pageOffset > totalHeightMinusBrowser ) {
+    goToTop.classList.add("active");
+  } else {
+    goToTop.classList.remove("active");
   };
   
 };
